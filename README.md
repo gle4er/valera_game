@@ -5,13 +5,10 @@
 * Installed NodeJS
 
 # Configuration
-* ????
+* bundle install
 
 # Database creation
-* ????
-
-# Database initialization
-* ????????/?
+* rails db:migrate
 
 # Run the test suite
-* ....
+* bundle exec rspec
