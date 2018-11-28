@@ -6,7 +6,7 @@ class Valera < ApplicationRecord
       @hp = 100
       @maxHp = 100
       @mp = 20
-      @maxMp = 20
+      @maxMp = 50
       @attack = 3
       @defense = 3
       @lucky = 3
@@ -26,7 +26,16 @@ class Valera < ApplicationRecord
 
     def mp=(value)
         @mp = value
-			(@mp > @maxMp) ? @mp = @maxMp : @mp = value
+			if(@mp > @maxMp && @mp <= (@maxMp * 1.3)) 
+				@mp = @maxMp
+				@hp = @hp * (0.8 + @level / 1000)
+			end
+			if(@mp > @maxMp * 1.3)	
+				time = Time.new
+				@mp = 0
+				@hp = @hp * (0.8 + @level / 1000)	
+				@outTime = time + 900
+			end
         end
     end
 
