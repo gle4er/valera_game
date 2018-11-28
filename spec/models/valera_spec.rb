@@ -26,6 +26,11 @@ RSpec.describe Valera, type: :model do
       expect(Valera.skill).to eq ''
     end
 
+	it 'setting hp greater than 100' do
+	  valera.hp = 101
+	  expect(valera.hp).to eq 100
+	end
+
     it 'decrease hp to 0.8 + level / 1000, when have mp (maxMp; maxMp * 1.3]' do
       valera.mp = valera.maxMp * 1.3
       expect(Valera.hp).to eq valera.maxHp * (0.8 + level / 1000)

@@ -19,11 +19,14 @@ class Valera < ApplicationRecord
 
     def hp=(value)
         @hp = value
+			@hp > @maxHp ? @hp = @maxHp : @hp = value
         end
+        
     end
 
     def mp=(value)
         @mp = value
+			(@mp > @maxMp) ? @mp = @maxMp : @mp = value
         end
     end
 
