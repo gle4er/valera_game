@@ -1,18 +1,18 @@
 class Valera < ApplicationRecord
-  #def initialize
-    #@hp = 100
-    #@maxHp = 100
-    #@mp = 20
-    #@maxMp = 50
-    #@attack = 3
-    #@defense = 3
-    #@lucky = 3
-    #@money = 500
-    #@xp = 0
-    #@level = 0
-    #@outTime = nil
-    #@skill = ''
-  #end
+  before_create do
+    self.hp = 100
+    self.maxHp = 100
+    self.mp = 20
+    self.maxMp = 50
+    self.attack = 3
+    self.defense = 3
+    self.lucky = 3
+    self.money = 500
+    self.xp = 0
+    self.level = 0
+    self.outTime = nil
+    self.skill = ''
+  end
 
   def hp=(value)
     @hp = @hp > @maxHp ? @hp = @maxHp : @hp = value
