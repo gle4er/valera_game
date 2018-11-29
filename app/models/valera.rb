@@ -19,24 +19,20 @@ class Valera < ApplicationRecord
 
     def hp=(value)
         @hp = value
-			@hp > @maxHp ? @hp = @maxHp : @hp = value
-        end
-        
+		@hp > @maxHp ? @hp = @maxHp : @hp = value
     end
 
     def mp=(value)
         @mp = value
-			if(@mp > @maxMp && @mp <= (@maxMp * 1.3)) 
-				@mp = @maxMp
-				@hp = @hp * (0.8 + @level / 1000)
-			end
-			if(@mp > @maxMp * 1.3)	
-				time = Time.new
-				@mp = 0
-				@hp = @hp * (0.8 + @level / 1000)	
-				@outTime = time + 900
-			end
-        end
+		if(@mp > @maxMp && @mp <= (@maxMp * 1.3)) 
+			@mp = @maxMp
+			@hp = @hp * (0.8 + @level / 1000)
+		end
+		if(@mp > @maxMp * 1.3)	
+			time = Time.new
+			@mp = 0
+			@hp = @hp * (0.8 + @level / 1000)	
+			@outTime = time + 900
+		end
     end
-
 end
