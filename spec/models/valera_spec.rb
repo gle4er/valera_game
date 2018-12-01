@@ -7,7 +7,7 @@ RSpec.describe Valera, type: :model do
       Timecop.return
     end
 
-    let(:valera) { Valera.new }
+    let(:valera) { Valera.create }
 
     it 'initializing with default values' do
       expect(valera.hp).to eq 100
@@ -34,14 +34,14 @@ RSpec.describe Valera, type: :model do
     context 'mana' do
       it 'decrease hp to 0.8 + level / 1000, when have mp (maxMp; maxMp * 1.3]' do
         valera.mp = valera.maxMp * 1.3
-        expect(valera.hp).to eq valera.maxHp * (0.8 + level / 1000)
+        expect(valera.hp).to eq valera.maxHp * (0.8 + valera.level / 1000)
       end
 
       it 'going out about 15 minutes, when mp > maxMp * 1.3' do
+        start = Time.now.utc
+        ending = Time.now.utc + 5
         valera.mp = valera.maxMp * 2
-        start = Time.now.to_i
-        ending = Time.now.to_i + 5
-        expect(valera.outTime.to_i).to be_between(start, ending)
+        expect(valera.outTime).to be_between(start, ending)
       end
     end
   end

@@ -1,9 +1,9 @@
 class Valera < ApplicationRecord
   before_create do
-    self.hp = 100
     self.maxHp = 100
-    self.mp = 20
+    self.hp = 100
     self.maxMp = 50
+    self.mp = 20
     self.attack = 3
     self.defense = 3
     self.lucky = 3
@@ -15,22 +15,23 @@ class Valera < ApplicationRecord
   end
 
   def hp=(value)
-    @hp = @hp > @maxHp ? @hp = @maxHp : @hp = value
+    hp = value > self.maxHp ? self.maxHp : value
+    super(hp)
   end
 
   def mp=(value)
     case value
     when value.negative?
-      @mp = 0
-    when 0 .. @maxMp
-      @mp = value
-    when @maxMp .. @maxMp * 1.3
-      @mp = @maxMp
-      @hp = @hp * (0.8 + @level / 1000)
+      super(0)
+    when 0 .. self.maxMp
+      super(value)
+    when self.maxMp .. self.maxMp * 1.3
+      super(self.maxMp)
+      self.hp = self.hp * (0.8 + self.level / 1000)
     else
-      @mp = 0
-      @hp = @hp * (0.8 + @level / 1000)	
-      @outTime = Time.now + 900
+      super(0)
+      self.hp = self.hp * (0.8 + self.level / 1000)	
+      self.outTime = Time.now
     end
   end
 end
