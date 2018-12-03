@@ -1,0 +1,5 @@
+---
+
+- name: "Clear podoroznik"
+  hp: 2
+  money: -10
