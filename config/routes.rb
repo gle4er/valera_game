@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users do
-    resources :valeras
-  end
+  resources :valeras
   root 'static_pages#home'
 end

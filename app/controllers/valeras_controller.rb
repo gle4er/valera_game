@@ -1,5 +1,7 @@
 class ValerasController < ApplicationController
   def create
+    current_user.create_valera
+    #current_user.valera.skill = ???
   end
 
   def show
@@ -7,9 +9,9 @@ class ValerasController < ApplicationController
 
   def index
     if !current_user.valera.nil?
-      p current_user.valera.id
+      redirect_to :action => 'show', :user_id => current_user.id
     else
-      p 'ses'
+      p current_user
     end
   end
 end
