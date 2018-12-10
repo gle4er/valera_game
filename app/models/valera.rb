@@ -31,7 +31,7 @@ class Valera < ApplicationRecord
     else
       super(0)
       self.hp = self.hp * (0.8 + self.level / 1000)	
-      self.outTime = Time.now
+      self.outTime = Time.now + 15 * 60
     end
   end
 end
