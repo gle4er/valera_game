@@ -10,17 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_144754) do
+ActiveRecord::Schema.define(version: 2018_12_03_154113) do
 
   create_table "default_items", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "hp", null: false
-    t.integer "mp", null: false
-    t.integer "attack", null: false
-    t.integer "defense", null: false
-    t.integer "lucky", null: false
-    t.integer "money", null: false
-    t.integer "xp", null: false
+    t.string "name"
+    t.integer "hp"
+    t.integer "mp"
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "lucky"
+    t.integer "money"
+    t.integer "xp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.integer "hp"
+    t.integer "mp"
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "lucky"
+    t.integer "money"
+    t.integer "xp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
