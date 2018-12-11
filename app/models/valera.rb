@@ -36,4 +36,12 @@ class Valera < ApplicationRecord
       self.outTime = Time.now
     end
   end
+
+  def stats
+    {
+      hp: hp, maxHp: maxHp, mp: mp, maxMp: maxMp,
+      attack: attack, defense: defense, lucky: lucky,
+      money: money, level: level
+    }
+  end
 end
