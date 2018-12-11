@@ -1,4 +1,6 @@
 class ValerasController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     current_user.create_valera
     #current_user.valera.skill = ???
@@ -9,7 +11,7 @@ class ValerasController < ApplicationController
 
   def index
     if !current_user.valera.nil?
-      redirect_to :action => 'show', :user_id => current_user.id
+      redirect_to action: 'show'
     else
       p current_user
     end
