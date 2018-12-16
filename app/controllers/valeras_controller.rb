@@ -9,7 +9,7 @@ class ValerasController < ApplicationController
     if current_user.valera.nil?
       current_user.create_valera
     end
-    #@valera = current_user.valera
+    @valera = current_user.valera
   end
 
   def show

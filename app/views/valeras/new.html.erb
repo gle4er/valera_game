@@ -1,13 +1,7 @@
 <h1>AbilityValera</h1>
 <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-<p>
-<br />
-<% form_with model: @valera do |f| %>
-  <%= f.radio_button :ability, "workaholic" %>
-  <%= label :ability_workaholic, "Трудоголик" %>
-  <%= f.radio_button_tag("ability", "@valera.skill", false) %> Сын маминой подруги <br />
-  <%= f.radio_button_tag("ability", "@valera.skill", false) %> Потомок дракона <br />
-  <%= f.radio_button_tag("ability", "@valera.skill", false) %> Народный целитель <br />
+<%= form_with model: @valera, local: true do |f| %>
+  <%= f.radio_button :skill, 'workoholic' %>
+  <%= f.label :skill, "Workoholic", :value => "workoholic" %>
   <%= f.submit %>
 <% end %>
-</p>
