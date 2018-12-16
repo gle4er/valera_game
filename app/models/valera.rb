@@ -41,7 +41,7 @@ class Valera < ApplicationRecord
     {
       hp: hp, maxHp: maxHp, mp: mp, maxMp: maxMp,
       attack: attack, defense: defense, lucky: lucky,
-      money: money, level: level
+      money: money, level: level, skill: skill
     }
   end
 end
