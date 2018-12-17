@@ -16,6 +16,7 @@ class EventsController < ApplicationController
       end
     end
     current_user.valera.save
+    redirect_to controller: 'valeras', action: 'show'
   end
 
 end
