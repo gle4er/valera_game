@@ -5,5 +5,8 @@
 <% @valera.stats.each do |stat, value| %>
   <li> <%= stat %>: <%= value %> </li>
 <% end %>
-</br>
+
+<p></p>
+<%= button_to "Show Items", { controller: 'items', action: 'show' }, method: :get %>
+<%= button_to "Buy Item", { controller: 'items', action: 'new', id: @valera.id }, method: :get %>
 <%= button_to "Events", { controller: 'events', action: 'new' }, method: :get %>

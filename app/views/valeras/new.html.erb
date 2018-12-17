@@ -2,8 +2,7 @@
 <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
 <%= form_with model: @valera do |f| %>
   <% @skills.each do |s| %>
-    <%= f.radio_button :skill, s %>
-    <%= f.label :skill, s.capitalize %></br>
+    <li> <%= f.radio_button :skill, s %> <%= f.label :skill, s.capitalize %> </li>
   <% end %>
   <%= f.submit %>
 <% end %>
