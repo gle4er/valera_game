@@ -23,9 +23,21 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item_id = params["id"]
-    @item = @valera.items[@item_id]
+    @item_id = params["item_id"]
+    @item = @valera.items[@item_id.to_i]
+    p @item
+    @stats = @item.stats
+    @stats.each do |stat, value|
+      if !value.nil?
+        new_value = @valera.send(stat.to_s)
+        new_value += value
+        @valera.send(stat.to_s + '=', new_value)
+      end
+    end
+    @valera.save
     @valera.items.delete @item
+    flash[:notice] = "Item is used"
+    redirect_to action: 'show'
   end
 
   def new
