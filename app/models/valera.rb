@@ -1,5 +1,6 @@
 class Valera < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :items
 
   before_create do
     self.maxHp = 100
@@ -35,6 +36,14 @@ class Valera < ApplicationRecord
       self.hp = self.hp * (0.8 + self.level / 1000)	
       self.outTime = Time.now + 15 * 60
     end
+  end
+
+  def isOut?
+    unless outTime.nil?
+      @currTime = Time.now.utc
+      self.outTime = @currTime >= self.outTime ? nil : self.outTime
+    end
+    !outTime.nil?
   end
 
   def stats

@@ -26,7 +26,6 @@ class ValerasController < ApplicationController
 
   def show
     @valera = current_user.valera
-    p @valera
     if @valera.nil? or @valera.skill == ''
       redirect_to action: 'new'
     end

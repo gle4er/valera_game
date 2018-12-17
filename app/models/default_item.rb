@@ -1,2 +1,0 @@
-class DefaultItem < ApplicationRecord
-end

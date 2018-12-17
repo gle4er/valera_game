@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_141606) do
+ActiveRecord::Schema.define(version: 2018_12_17_083421) do
 
-  create_table "default_items", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.integer "hp"
+    t.integer "mp"
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "lucky"
+    t.integer "money"
+    t.integer "xp"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "hp"
     t.integer "mp"
@@ -25,17 +39,10 @@ ActiveRecord::Schema.define(version: 2018_12_09_141606) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.integer "hp"
-    t.integer "mp"
-    t.integer "attack"
-    t.integer "defense"
-    t.integer "lucky"
-    t.integer "money"
-    t.integer "xp"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "items_valeras", id: false, force: :cascade do |t|
+    t.integer "valera_id", null: false
+    t.integer "item_id", null: false
+    t.index ["valera_id", "item_id"], name: "index_items_valeras_on_valera_id_and_item_id"
   end
 
   create_table "users", force: :cascade do |t|

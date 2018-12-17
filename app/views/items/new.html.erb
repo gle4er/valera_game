@@ -1,0 +1,18 @@
+<h1>BuyItem</h1>
+
+<p></p>
+Money: <%= @valera.money %>
+<%= form_with url: '/valera/item' do |f| %>
+  <% @item_list.each do |curr_item| %>
+    <%= f.radio_button :id, curr_item.id %> <%= f.label :id, curr_item.name %>
+    <% curr_item.stats.each do |stat, value| %>
+      <% if !value.nil? %>
+        <li> <%= stat%> : <%= value %> </li>
+      <% end %>
+    <% end %>
+    <li> cost : <%= curr_item.money %> </li>
+    </br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+<%= button_to "Back to Stats", { controller: 'valeras', action: 'show' }, method: :get %>
