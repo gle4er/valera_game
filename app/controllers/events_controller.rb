@@ -12,6 +12,7 @@ class EventsController < ApplicationController
       redirect_to controller: 'valeras', action: 'show'
     end
     @event_list = Event.all
+    @event_print = Event.all
   end
 
   def create

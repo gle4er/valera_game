@@ -2,7 +2,13 @@
 <p></p>
 <%= form_with url: '/valeras/event' do |f|%>
   <% @event_list.each do |event| %>
-    <%= f.radio_button :id, event.id%> <%= f.label :id, event.name %></br>
+    <%= f.radio_button :id, event.id%> <%= f.label :id, event.name%>
+    <% event.stats.each do |stat, value| %>
+      <% if !value.nil? %>
+        <li> <%= stat%> : <%= value %> </li>
+      <% end %>
+    <% end %>
+    </br>
   <% end %>
   <%= f.submit "Apply" %>
 <% end %>
