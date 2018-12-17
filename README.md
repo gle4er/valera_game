@@ -12,3 +12,7 @@
 
 # Run the test suite
 * bundle exec rspec
+
+# Run the application
+* rails server
+* follow link http://localhost:3000
