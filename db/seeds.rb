@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+file = YAML.load_file('db/assets/items.yaml')
+file.each do |features|
+  DefaultItem.create(features)
+end
+
+file = YAML.load_file('db/assets/events.yaml')
+file.each do |features|
+  Event.create(features)
+end
