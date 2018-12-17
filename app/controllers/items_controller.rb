@@ -13,13 +13,13 @@ class ItemsController < ApplicationController
     @item = Item.find params["id"]
     if @valera.money < @item.money
       flash[:notice] = "Not enough money"
-      redirect_to :show
+    else
+      @valera.money -= @item.money
+      @valera.items << @item
+      @valera.save
+      flash[:notice] = "Item is added to inventory"
     end
-    flash[:notice] = "Item is added to inventory"
-    @valera.money -= @item.money
-    @valera.items << @item
-    @valera.save
-    redirect_to :show
+    redirect_to action: 'new'
   end
 
   def destroy
