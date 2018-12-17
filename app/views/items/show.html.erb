@@ -1,1 +1,16 @@
+<h1>ValeraItems</h1>
  
+<p></p>
+
+<% if @items.size == 0 %>
+    <p> You didn't have items. Buy something </p>
+<% else %>
+    <% @items.each do |item| %>
+        <% item.stats.each do |stat, value| %>
+            <li> <%= stat %>: <%= value %> </li>
+        <% end %>
+    <% end %>
+<% end %>
+
+<p></p>
+<%= button_to "Back to Stats", { controller: 'valeras', action: 'show' }, method: :get %>

@@ -1,0 +1,9 @@
+<h1>BuyItem</h1>
+
+<p></p>
+<%= form_with model: @item do |f| %>
+  <% @item_list.each do |curr_item| %>
+    <li> <%= f.radio_button :id, curr_item.id %> <%= f.label :id, curr_item.name %></li>
+  <% end %>
+  <%= f.submit %>
+<% end %>
