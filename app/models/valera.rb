@@ -1,4 +1,6 @@
 class Valera < ApplicationRecord
+  belongs_to :user
+
   before_create do
     self.maxHp = 100
     self.hp = 100
@@ -33,5 +35,13 @@ class Valera < ApplicationRecord
       self.hp = self.hp * (0.8 + self.level / 1000)	
       self.outTime = Time.now + 15 * 60
     end
+  end
+
+  def stats
+    {
+      hp: hp, maxHp: maxHp, mp: mp, maxMp: maxMp,
+      attack: attack, defense: defense, lucky: lucky,
+      money: money, level: level, skill: skill
+    }
   end
 end
