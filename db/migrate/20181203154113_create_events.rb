@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :lucky
       t.integer :money
       t.integer :xp
+      t.integer :duration
 
       t.timestamps
     end

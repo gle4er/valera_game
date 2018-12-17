@@ -37,10 +37,12 @@ class Valera < ApplicationRecord
     end
   end
 
-  def isOut
-    @currTime = Time.now.utc
-    self.outTime = @currTime >= self.outTime ? nil : self.outTime
-    outTime.nil?
+  def isOut?
+    unless outTime.nil?
+      @currTime = Time.now.utc
+      self.outTime = @currTime >= self.outTime ? nil : self.outTime
+    end
+    !outTime.nil?
   end
 
   def stats
