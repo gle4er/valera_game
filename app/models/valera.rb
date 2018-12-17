@@ -1,5 +1,6 @@
 class Valera < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :items
 
   before_create do
     self.maxHp = 100
