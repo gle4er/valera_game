@@ -1,7 +1,0 @@
-<h1>StaticValera</h1>
-<%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-<p></p>
-
-<% @valera.stats.each do |stat, value| %>
-  <li> <%= stat %>: <%= value %> </li>
-<% end %>

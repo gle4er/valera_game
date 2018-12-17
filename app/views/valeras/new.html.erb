@@ -1,9 +1,0 @@
-<h1>AbilityValera</h1>
-<%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-<%= form_with model: @valera do |f| %>
-  <% @skills.each do |s| %>
-    <%= f.radio_button :skill, s %>
-    <%= f.label :skill, s.capitalize %>
-  <% end %>
-  <%= f.submit %>
-<% end %>
