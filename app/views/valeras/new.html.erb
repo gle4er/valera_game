@@ -3,7 +3,7 @@
 <%= form_with model: @valera do |f| %>
   <% @skills.each do |s| %>
     <%= f.radio_button :skill, s %>
-    <%= f.label :skill, s.capitalize %>
+    <%= f.label :skill, s.capitalize %></br>
   <% end %>
   <%= f.submit %>
 <% end %>

@@ -3,16 +3,20 @@
 - name: "Meditation"  
   hp: 3
   mp: -2
+  duration: 60
   
 - name: "Job"
   mp: -2
   money: 300
+  duration: 60
   
 - name: "Watch TV series"
   mp: 3
   money: -200
+  duration: 60
   
 - name: "Rocking"
   defense: 1
   attack: 1
   money: -1000
+  duration: 60
