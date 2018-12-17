@@ -1,5 +1,9 @@
 <h1>BuyItem</h1>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <p></p>
 <%= form_with url: '/valera/item' do |f| %>
   <% @item_list.each do |curr_item| %>

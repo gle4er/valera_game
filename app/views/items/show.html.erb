@@ -1,15 +1,22 @@
 <h1>ValeraItems</h1>
- 
+
 <p></p>
 
 <% if @items.size == 0 %>
-    <p> You didn't have items. Buy something </p>
+  <p> You didn't have items. Buy something </p>
 <% else %>
-    <% @items.each do |item| %>
-        <% item.stats.each do |stat, value| %>
-            <li> <%= stat %>: <%= value %> </li>
-        <% end %>
+  <% @items.each do |item| %>
+    <li><b> <%= item.name %> </b></li>
+    <% item.stats.each do |stat, value| %>
+      <% if !value.nil? %>
+        <li> 
+          <%= stat %>: +<%= value %>
+          <%#<%= button_to "Remove", { controller: 'item', action: 'destroy', item_id: item.id }%>
+        </li>
+      <% end %>
     <% end %>
+    <p></p>
+  <% end %>
 <% end %>
 
 <p></p>
