@@ -2,10 +2,10 @@
 
 <p></p>
 
-<% if @items.size == 0 %>
+<% if @valera.items.size == 0 %>
   <p> You didn't have items. Buy something </p>
 <% else %>
-  <% @items.each_with_index do |item, i| %>
+  <% @valera.items.each do |item| %>
     <li>
       <b> <%= item.name %> </b>
       <% item.stats.each do |stat, value| %>
@@ -16,7 +16,7 @@
         <% end %>
       </li>
     <% end %>
-    <%= button_to "Use", { controller: 'items', action: 'destroy', item_id: i }, method: :delete %>
+    <%= button_to "Use", { controller: 'items', action: 'destroy', item_id: item.id }, method: :delete %>
     <p></p>
   <% end %>
 <% end %>

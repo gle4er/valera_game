@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_083421) do
   create_table "items_valeras", id: false, force: :cascade do |t|
     t.integer "valera_id", null: false
     t.integer "item_id", null: false
+    t.index ["valera_id", "item_id"], name: "index_items_valeras_on_valera_id_and_item_id"
   end
 
   create_table "users", force: :cascade do |t|

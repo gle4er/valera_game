@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = @valera.items
+    @valera.items.each do |i|
+      p i
+    end
   end
 
   def create
@@ -24,9 +26,8 @@ class ItemsController < ApplicationController
 
   def destroy
     @item_id = params["item_id"]
-    @item = @valera.items[@item_id.to_i]
-    p @item
-    @stats = @item.stats
+    @items = @valera.items.where("item_id = #{@item_id}").to_a
+    @stats = @items.first.stats
     @stats.each do |stat, value|
       if !value.nil?
         new_value = @valera.send(stat.to_s)
@@ -35,7 +36,9 @@ class ItemsController < ApplicationController
       end
     end
     @valera.save
-    @valera.items.delete @item
+    @valera.items.delete @item_id
+    @items.pop
+    @valera.items << @items
     flash[:notice] = "Item is used"
     redirect_to action: 'show'
   end
