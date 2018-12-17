@@ -1,8 +1,13 @@
-<h1>AbilityValera</h1>
+<div class="container">
+<h1>#ValeraAbility</h1>
 <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+<p></p>
 <%= form_with model: @valera do |f| %>
+  <div class="form-group">
   <% @skills.each do |s| %>
-    <li> <%= f.radio_button :skill, s %> <%= f.label :skill, s.capitalize %> </li>
+    <div class="radio"><%= f.radio_button :skill, s %> <%= f.label :skill, s.capitalize %></div> 
   <% end %>
   <%= f.submit %>
+  </div>
 <% end %>
+</div>
