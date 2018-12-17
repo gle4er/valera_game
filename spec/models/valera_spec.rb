@@ -38,8 +38,8 @@ RSpec.describe Valera, type: :model do
       end
 
       it 'going out about 15 minutes, when mp > maxMp * 1.3' do
-        start = Time.now.utc + 15 * 60
-        ending = Time.now.utc + 5 + 15 * 60
+        start = Time.now.utc
+        ending = Time.now.utc + 5
         valera.mp = valera.maxMp * 2
         expect(valera.outTime).to be_between(start, ending)
       end
