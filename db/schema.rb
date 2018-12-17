@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_12_17_083421) do
     t.integer "lucky"
     t.integer "money"
     t.integer "xp"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
