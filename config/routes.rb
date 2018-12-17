@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resource :valeras do
-    resource :items
+  resource :valera do
+    resource :item
   end
-  resolve("Valera") { [:valeras] }
-  resolve("Item") { [:items] }
+  resolve("Item") { [:item] }
+  resolve("Valera") { [:valera] }
   root 'static_pages#home'
 end

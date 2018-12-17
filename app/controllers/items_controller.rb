@@ -6,13 +6,12 @@ class ItemsController < ApplicationController
 
   def create
     @valera = current_user.valera
-    @item = Item.find params["item"]["id"]
+    @item = Item.find params["id"]
     @valera.money -= @item.money
     @valera.items << @item
   end
 
   def new
     @item_list = Item.all
-    @item = Item.new
   end
 end
