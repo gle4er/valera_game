@@ -7,7 +7,8 @@ RSpec.describe Valera, type: :model do
       Timecop.return
     end
 
-    let(:valera) { Valera.create }
+    let(:user) { create(:user) }
+    let(:valera) { Valera.create user_id: user.id }
 
     it 'initializing with default values' do
       expect(valera.hp).to eq 100
@@ -38,11 +39,16 @@ RSpec.describe Valera, type: :model do
       end
 
       it 'going out about 15 minutes, when mp > maxMp * 1.3' do
-        start = Time.now.utc + 15 * 60
-        ending = Time.now.utc + 5 + 15 * 60
-        valera.mp = valera.maxMp * 2
-        expect(valera.outTime).to be_between(start, ending)
+        it 'indicates, when Valera can not do anything' do
+          start = Time.now.utc + 15 * 60
+          ending = Time.now.utc + 5 + 15 * 60
+          valera.mp = valera.maxMp * 2
+          expect(valera.outTime).to be_between(start, ending)
+        end
+
       end
+
     end
+
   end
 end
