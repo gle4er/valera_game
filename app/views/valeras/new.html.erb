@@ -5,9 +5,13 @@
 <%= form_with model: @valera do |f| %>
   <div class="form-group">
   <% @skills.each do |s| %>
-    <div class="radio"><%= f.radio_button :skill, s %> <%= f.label :skill, s.capitalize %></div> 
+  <div class="form-check">
+    <%= f.radio_button :skill, s, class: "form-check-input" %> 
+    <%= f.label :skill, s.capitalize, class: "form-check-label" %>
+  </div>
   <% end %>
-  <%= f.submit %>
+  </div>
+  <div class="from-group">
+  <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
-</div>
