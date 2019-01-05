@@ -1,6 +1,9 @@
 <div class="container">
-<h1>#ValeraStatistic</h1>
-<%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">#ValeraStatistic</h1>
+  </div>
+</div>
 <p></p>
 
 <% @valera.stats.each do |stat, value| %>
@@ -14,3 +17,5 @@
 <%= button_to "Events", { controller: 'events', action: 'new' }, method: :get %>
 </div>
 </div>
+
+<center><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></center>
