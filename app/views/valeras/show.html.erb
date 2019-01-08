@@ -12,6 +12,7 @@
 
 <p></p>
 <div class="row">
+<button type="button" class="btn btn-outline-primary"><%= button_to "Show Items", { controller: 'items', action: 'show' }, method: :get %></button>
 <%= button_to "Show Items", { controller: 'items', action: 'show' }, method: :get %>
 <%= button_to "Buy Item", { controller: 'items', action: 'new', id: @valera.id }, method: :get %>
 <%= button_to "Events", { controller: 'events', action: 'new' }, method: :get %>
