@@ -38,9 +38,11 @@ RSpec.describe Valera, type: :model do
         expect(valera.hp).to eq valera.max_hp * (0.8 + valera.level / 1000)
       end
 
-      it 'going out about 15 minutes, when mp > max_mp * 1.3' do
+      it 'going out about 1 minute, when mp > max_mp * 1.3' do
         valera.mp = valera.max_mp * 2
-        expect(valera.is_out?).to eq True
+        expect(valera.is_out?).to eq true
+        Timecop.travel(Time.now.utc + 60)
+        expect(valera.is_out?).to eq false
       end
 
     end
