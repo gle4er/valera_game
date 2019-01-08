@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 2018_12_17_083421) do
     t.integer "lucky"
     t.integer "money"
     t.string "skill"
-    t.integer "maxHp"
-    t.integer "maxMp"
+    t.integer "max_hp"
+    t.integer "max_mp"
     t.integer "level"
     t.integer "xp"
-    t.datetime "outTime"
+    t.datetime "out_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

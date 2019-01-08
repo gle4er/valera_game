@@ -3,9 +3,9 @@ class Valera < ApplicationRecord
   has_and_belongs_to_many :items
 
   before_create do
-    self.maxHp = 100
+    self.max_hp = 100
     self.hp = 100
-    self.maxMp = 50
+    self.max_mp = 50
     self.mp = 20
     self.attack = 3
     self.defense = 3
@@ -13,12 +13,12 @@ class Valera < ApplicationRecord
     self.money = 500
     self.xp = 0
     self.level = 0
-    self.outTime = nil
+    self.out_time = nil
     self.skill = ''
   end
 
   def hp=(value)
-    hp = value > self.maxHp ? self.maxHp : value
+    hp = value > self.max_hp ? self.max_hp : value
     super(hp)
   end
 
@@ -26,29 +26,29 @@ class Valera < ApplicationRecord
     case value
     when value.negative?
       super(0)
-    when 0 .. self.maxMp
+    when 0 .. self.max_mp
       super(value)
-    when self.maxMp .. self.maxMp * 1.3
-      super(self.maxMp)
+    when self.max_mp .. self.max_mp * 1.3
+      super(self.max_mp)
       self.hp = self.hp * (0.8 + self.level / 1000)
     else
       super(0)
       self.hp = self.hp * (0.8 + self.level / 1000)	
-      self.outTime = Time.now + 15 * 60
+      self.out_time = Time.now + 15 * 60
     end
   end
 
-  def isOut?
-    unless outTime.nil?
-      @currTime = Time.now.utc
-      self.outTime = @currTime >= self.outTime ? nil : self.outTime
+  def is_out?
+    unless out_time.nil?
+      @curr_time = Time.now.utc
+      self.out_time = @curr_time >= self.out_time ? nil : self.out_time
     end
-    !outTime.nil?
+    !out_time.nil?
   end
 
   def stats
     {
-      hp: hp, maxHp: maxHp, mp: mp, maxMp: maxMp,
+      hp: hp, max_hp: max_hp, mp: mp, max_mp: max_mp,
       attack: attack, defense: defense, lucky: lucky,
       money: money, level: level, skill: skill
     }
