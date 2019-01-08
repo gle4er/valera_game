@@ -1,7 +1,6 @@
-<div class="container">
-<h1>#ValeraAbility</h1>
-<%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-<p></p>
+<div class="container jumbotron">
+<h1 class="display-4">#ValeraAbility</h1>
+<p class="lead">You are in the character creation menu. For starters, choose an ability that your hero will own.</p>
 <%= form_with model: @valera do |f| %>
   <div class="form-group">
   <% @skills.each do |s| %>
@@ -11,7 +10,8 @@
   </div>
   <% end %>
   </div>
-  <div class="from-group">
   <%= f.submit class: "btn btn-primary" %>
-  </div>
 <% end %>
+<p></p>
+<%= button_to 'Выйти', destroy_user_session_path, class: "btn btn-dark", :method => :delete %>
+</div>
