@@ -7,9 +7,11 @@
 <p></p>
 
 
+<ul class="list-group">
 <% @valera.stats.each do |stat, value| %>
-  <li> <%= stat %>: <%= value %> </li>
+  <li class="list-group-item"> <%= stat %>: <%= value %> </li>
 <% end %>
+</ul>
 
 <p></p>
 <div class="btn-toolbar">
