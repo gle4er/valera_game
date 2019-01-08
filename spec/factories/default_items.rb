@@ -1,12 +1,12 @@
 FactoryBot.define do
-  factory :default_item do
-    name { "MyString" }
-    hp { 1 }
-    mp { 1 }
-    attack { 1 }
-    defense { 1 }
-    lucky { 1 }
-    money { 1 }
-    xp { 1 }
+  factory :item do
+    name { "Podorozhnik" }
+    hp { 2 }
+    mp { nil }
+    attack { nil }
+    defense { nil }
+    lucky { nil }
+    money { 10 }
+    xp { nil }
   end
 end

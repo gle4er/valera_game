@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
 
   let(:event) { create(:event) }
+
   context 'testing with meditation' do
     it 'returns only hash with values' do
       hash = event.stats
