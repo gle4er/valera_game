@@ -8,5 +8,6 @@ FactoryBot.define do
     lucky { nil }
     money { nil }
     xp { nil }
+    duration { 60 }
   end
 end
