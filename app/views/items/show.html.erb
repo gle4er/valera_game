@@ -1,28 +1,31 @@
 <div class="container">
-<h1>#ValeraItems</h1>
-
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">#ValeraItems</h1>
+  </div>
+</div>
 <p></p>
 
 <% if @valera.items.size == 0 %>
-  <p> You didn't have items. Buy something </p>
+  <center><p> You didn't have items. Buy something </p></center>
 <% else %>
   <% @valera.items.each do |item| %>
-    <div class="row">
-    <b> <%= item.name %> </b>
-    <div class="col-sm-offset-2 col-sm-2">
+    <ul class="row">
+    <h5> <%= item.name %> </h5>
+    <div align="center" class="col-sm-offset-3 col-sm-3">
       (
-    <% item.stats.each do |stat, value| %>
+        <% item.stats.each do |stat, value| %>
       <% if !value.nil? %>
-          <%= stat %>: +<%= value %>
+      <%= stat %>: +<%= value %>
       <% end %>
     <% end %>
     )
     </div>
-    <%= button_to "Use", { controller: 'items', action: 'destroy', item_id: item.id }, method: :delete %>
-    </div>
+    <center><div class="btn btn-secondary btn-sm"> <%= button_to "Use", { controller: 'items', action: 'destroy', item_id: item.id }, method: :delete, class: "btn btn-secondary" %></div></center>
+    </ul>
   <% end %>
 <% end %>
 
  <p></p>
- <%= button_to "Back to Stats", { controller: 'valeras', action: 'show' }, method: :get %>
+ <center><%= button_to "Back to Stats", { controller: 'valeras', action: 'show' }, method: :get %></center>
 </div>
