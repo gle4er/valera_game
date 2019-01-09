@@ -15,7 +15,15 @@ require 'simplecov'
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-SimpleCov.start
+SimpleCov.start do 
+  add_filter '/test/'
+  add_filter '/config/'
+  add_filter '/vendor/'
+
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Views', 'app/views'
+end
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
