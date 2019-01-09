@@ -7,12 +7,11 @@ RSpec.describe StaticPagesController, type: :controller do
       get :home
       expect(response).to have_http_status(:success)
     end
-  end
 
-  describe "GET #help" do
-    it "returns http success" do
-      get :help
-      expect(response).to have_http_status(:success)
+    it "redirects when user is logged in system" do
+      sign_in FactoryBot.create(:user)
+      get :home
+      expect(response).to have_http_status(:redirect)
     end
   end
 
