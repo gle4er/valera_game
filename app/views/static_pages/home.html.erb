@@ -13,15 +13,9 @@
 
 <div class="jumbotron text-center">
   <h1>Бомж Валера home page</h1>
-  <p>Здесь вы можете <%= link_to 'войти', new_user_session_path %> или <%= link_to 'зарегистрироваться', new_user_registration_path %></p> 
+  <p>Here You can <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %></p> 
 </div>
 
 
 </body>
 </html>
-
-
-<% if user_signed_in? %>
-    <span>Здравствуйте, <%= current_user.email %></span>
-    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-<% end %>
