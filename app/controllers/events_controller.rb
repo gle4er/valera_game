@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def new
     if @valera.isOut?
       @wait_time = @valera.outTime - Time.now.utc
-      flash[:notice] = "Valera still busy. Wait for #{@wait_time}"
+      flash[:alert] = "Valera still busy. Wait for #{@wait_time}"
       redirect_to controller: 'valeras', action: 'show'
     end
     @event_list = Event.all

@@ -7,8 +7,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <p class="notice"><%=notice %></p>
-    <p class="alert"><%=alert %></p>
+    <% if !notice.nil? %>
+      <p class="alert alert-success"><%=notice %></p>
+    <% end %>
+    <% if !alert.nil? %>
+      <p class="alert alert-warning"><%=alert %></p>
+    <% end %>
   </head>
 
   <body>
