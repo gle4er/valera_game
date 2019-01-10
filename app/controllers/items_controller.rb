@@ -6,13 +6,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @valera.items.each do |i|
-      p i
-    end
   end
 
   def create
-    @item = Item.find params["id"]
+    @item = Item.find params["item_id"]
     if @valera.money < @item.money
       flash[:notice] = "Not enough money"
     else
