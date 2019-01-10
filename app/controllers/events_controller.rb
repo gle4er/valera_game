@@ -18,6 +18,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.find params["id"]
     @stats = @event.stats
+    if !@event.money.nil? && @valera.money < -@event.money && @event.money < 0
+      flash[:notice] = "Not enough money"
+      redirect_to action: 'new'
+      return
+    end
     @stats.each do |stat, value|
       unless value.nil?
         new_value = @valera.send(stat.to_s)

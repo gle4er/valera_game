@@ -1,18 +1,20 @@
-# Uses Ruby version 2.5.3
+# Valera game super-duper quest
+This is ruby-on-rails project, where user playing with pauper Valera.
+Uses Ruby version 2.5.3
 
-# System dependencies
-* Any PC-like device
-* Installed NodeJS
+## Dependencies
+  * Any PC-like device;
+  * Installed ruby 2.5.3;
+  * Installed NodeJS.
 
-# Configuration
-* bundle install
+## Configuration
+    bundle install
+    rails db:migrate
+    rails db:seed
 
-# Database creation
-* rails db:migrate
+## Run the test suite
+    bundle exec rspec
 
-# Run the test suite
-* bundle exec rspec
-
-# Run the application
-* rails server
-* follow link http://localhost:3000
+## Run the application
+    rails server
+  follow link http://localhost:3000
