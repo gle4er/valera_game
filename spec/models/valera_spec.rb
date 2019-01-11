@@ -12,16 +12,16 @@ RSpec.describe Valera, type: :model do
 
     it 'initializing with default values' do
       expect(valera.hp).to eq 100
-      expect(valera.maxHp).to eq 100
+      expect(valera.max_hp).to eq 100
       expect(valera.mp).to eq 20
-      expect(valera.maxMp).to eq 50
+      expect(valera.max_mp).to eq 50
       expect(valera.attack).to eq 3
       expect(valera.defense).to eq 3
       expect(valera.lucky).to eq 3
       expect(valera.money).to eq 500
       expect(valera.xp).to eq 0
       expect(valera.level).to eq 0
-      expect(valera.outTime).to eq nil
+      expect(valera.out_time).to eq nil
       expect(valera.skill).to eq ''
     end
 
@@ -33,19 +33,16 @@ RSpec.describe Valera, type: :model do
     end
 
     context 'mana' do
-      it 'decrease hp to 0.8 + level / 1000, when have mp (maxMp; maxMp * 1.3]' do
-        valera.mp = valera.maxMp * 1.3
-        expect(valera.hp).to eq valera.maxHp * (0.8 + valera.level / 1000)
+      it 'decrease hp to 0.8 + level / 1000, when have mp (max_mp; max_mp * 1.3]' do
+        valera.mp = valera.max_mp * 1.3
+        expect(valera.hp).to eq valera.max_hp * (0.8 + valera.level / 1000)
       end
 
-      it 'going out about 15 minutes, when mp > maxMp * 1.3' do
-        it 'indicates, when Valera can not do anything' do
-          start = Time.now.utc + 15 * 60
-          ending = Time.now.utc + 5 + 15 * 60
-          valera.mp = valera.maxMp * 2
-          expect(valera.outTime).to be_between(start, ending)
-        end
-
+      it 'going out about 1 minute, when mp > max_mp * 1.3' do
+        valera.mp = valera.max_mp * 2
+        expect(valera.is_out?).to eq true
+        Timecop.travel(Time.now.utc + 60)
+        expect(valera.is_out?).to eq false
       end
 
     end

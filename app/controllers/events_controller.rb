@@ -1,14 +1,17 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action do |controller|
     @valera = current_user.valera
   end
 
 
   def new
-    if @valera.isOut?
-      @wait_time = @valera.outTime - Time.now.utc
-      flash[:alert] = "Valera still busy. Wait for #{@wait_time}"
+
+    if @valera.is_out?
+      @wait_time = @valera.out_time - Time.now.utc
+      flash[:notice] = "Warning: Valera still busy. Wait for #{@wait_time}"
       redirect_to controller: 'valeras', action: 'show'
     end
     @event_list = Event.all
@@ -30,7 +33,7 @@ class EventsController < ApplicationController
         @valera.send(stat.to_s + '=', new_value)
       end
     end
-    @valera.outTime = Time.now.utc + @event.duration
+    @valera.out_time = Time.now.utc + @event.duration
     @valera.save
     redirect_to controller: 'valeras', action: 'show'
   end

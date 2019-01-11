@@ -21,7 +21,6 @@ class ValerasController < ApplicationController
   end
 
   def update
-    p current_user.valera.skill
   end
 
   def show

@@ -8,11 +8,11 @@ class CreateValeras < ActiveRecord::Migration[5.2]
       t.integer :lucky
       t.integer :money
       t.string :skill
-      t.integer :maxHp
-      t.integer :maxMp
+      t.integer :max_hp
+      t.integer :max_mp
       t.integer :level
       t.integer :xp
-      t.timestamp :outTime
+      t.timestamp :out_time
 
       t.timestamps
     end

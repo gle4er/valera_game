@@ -12,7 +12,7 @@
   <% @item_list.each do |curr_item| %>
     <div class="row">
     <div class="radio">
-    <%= f.radio_button :id, curr_item.id %> <%= f.label :id, curr_item.name %>
+    <%= f.radio_button :item_id, curr_item.id %> <%= f.label :item_id, curr_item.name %>
     </div>
     <div class="col-sm-10">
       (

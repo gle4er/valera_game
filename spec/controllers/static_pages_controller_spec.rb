@@ -7,12 +7,13 @@ RSpec.describe StaticPagesController, type: :controller do
       get :home
       expect(response).to have_http_status(:success)
     end
-  end
 
-  describe "GET #help" do
-    it "returns http success" do
-      get :help
-      expect(response).to have_http_status(:success)
+    context "when logged" do
+      login_user
+      it "redirects when user is logged in system" do
+        get :home
+        expect(response).to have_http_status(:redirect)
+      end
     end
   end
 

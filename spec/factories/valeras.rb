@@ -11,6 +11,6 @@ FactoryBot.define do
     maxMp { "" }
     level { 1 }
     xp { 1 }
-    outTime { "2018-11-24 11:21:01" }
+    outTime { nil }
   end
 end
