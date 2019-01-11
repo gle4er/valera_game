@@ -1,5 +1,9 @@
 <div class="container">
-<h1>#ValeraEvent</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">#ValeraEvent</h1>
+  </div>
+</div>
 <p></p>
 <div class="form-group">
 <%= form_with url: '/valera/event' do |f|%>
@@ -20,9 +24,9 @@
     </div>
     </br>
   <% end %>
-  <div class="row"><%= f.submit "Apply" %></div>
+  <center><div class="btn btn-secondary btn-sm"> <%= f.submit "Apply", class: "btn btn-secondary" %></div></center>
 <% end %>
 </div>
 
-<div class="row"><%= button_to "Back to Stat", {controller: 'valeras', action: 'show' }, method: :get%></div>
+<center><div><%= button_to "Back to Stat", {controller: 'valeras', action: 'show' }, method: :get%></div></center>
 </div>

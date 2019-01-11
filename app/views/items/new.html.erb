@@ -1,7 +1,11 @@
 <div class="container">
-<h1>#BuyItem</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">#BuyItem</h1>
+  </div>
+</div>
 
-Money: <%= @valera.money %>
+<center>Money: <h2><%= @valera.money %></h2></center>
 <p></p>
 <%= form_with url: '/valera/item' do |f| %>
   <div class="form-group">
@@ -22,8 +26,10 @@ Money: <%= @valera.money %>
     </div>
     </div>
   <% end %>
-  <%= f.submit %>
+  <center><div class="btn btn-secondary btn-sm"> <%= f.submit "Buy", class: "btn btn-secondary" %></div></center>
+
+  
   </div>
 <% end %>
-<%= button_to "Back to Stats", { controller: 'valeras', action: 'show' }, method: :get %>
+<center><%= button_to "Back to Stats", { controller: 'valeras', action: 'show' }, method: :get %></center>
 </div>

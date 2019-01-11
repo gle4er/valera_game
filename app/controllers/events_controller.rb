@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def new
     if @valera.isOut?
       @wait_time = @valera.outTime - Time.now.utc
-      flash[:notice] = "Valera still busy. Wait for #{@wait_time}"
+      flash[:alert] = "Valera still busy. Wait for #{@wait_time}"
       redirect_to controller: 'valeras', action: 'show'
     end
     @event_list = Event.all
@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.find params["id"]
     @stats = @event.stats
     if !@event.money.nil? && @valera.money < -@event.money && @event.money < 0
-      flash[:notice] = "Not enough money"
+      flash[:alert] = "Not enough money"
       redirect_to action: 'new'
       return
     end

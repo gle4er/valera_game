@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.find params["id"]
     if @valera.money < @item.money
-      flash[:notice] = "Not enough money"
+      flash[:alert] = "Not enough money"
     else
       @valera.money -= @item.money
       @valera.items << @item
